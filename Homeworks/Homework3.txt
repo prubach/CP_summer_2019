@@ -1,0 +1,8 @@
+Please extend your previous Tick Tack Toe game program adding:
+- reading the board from a CSV file
+- optimizing your code so that you can support a board of any given size
+
+Hint:
+It will simplify your code if you use 1 and -1 to represent the X and O respectively
+and 0 to represent an empty field. In the CSV file you can use X and O
+and then replace them with -1,0,1 upon reading the board.
