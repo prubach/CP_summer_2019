@@ -1,0 +1,4 @@
+Given the structure of mathematical shapes in pl.waw.sgh.shapes
+please define a Triangle as a subclass of Shape and a specific type of Triangle
+- the equilateral triangle as a subclass of Triangle
+Test to see if surface calculation works correctly for all triangles.
