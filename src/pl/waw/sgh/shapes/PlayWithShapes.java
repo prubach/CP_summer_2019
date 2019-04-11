@@ -9,5 +9,9 @@ public class PlayWithShapes {
         Rectangle r1 = new Rectangle(3,8);
         System.out.println(r1);
         System.out.println(r1.calcSurface());
+
+        Circle c1 = new Circle(7);
+        System.out.println(c1);
+        System.out.println(c1.calcSurface());
     }
 }
