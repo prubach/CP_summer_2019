@@ -5,6 +5,9 @@ public class Shape {
     double parA;
     double parB;
 
+/*    public Shape() {
+    }
+    */
     public Shape(double parA, double parB) {
         setParams(parA, parB);
     }
@@ -18,6 +21,7 @@ public class Shape {
         this.parB = parB;
     }
 
+    @Override
     public String toString() {
         return "Shape[parA=" + parA + ", parB=" +parB + "]";
     }
