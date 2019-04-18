@@ -37,6 +37,16 @@ public class PlayWithShapes {
         for (Shape s : myShapes) {
             System.out.println(s);
             System.out.println(s.calcSurface());
+            // if shape inherits from or implements interface
+            // of this kind
+            //PerimeterCalculation pc = ((PerimeterCalculation)s);
+            if (s instanceof PerimeterCalculation) {
+                // Cast - look at s as a PerimeterCalculation object
+                PerimeterCalculation pc = ((PerimeterCalculation)s);
+                System.out.println("Perimeter: " + pc.calcPerimeter());
+            }
+
+
         }
 
 
