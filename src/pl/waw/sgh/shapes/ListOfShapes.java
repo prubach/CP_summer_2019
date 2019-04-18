@@ -16,6 +16,7 @@ public class ListOfShapes {
         myShapeList.add(new Rectangle(5,6));
         myShapeList.add(new Circle(8));
         myShapeList.add(r1);
+        myShapeList.add(new Rectangle(2,3));
 
         myShapeList.add(1, new Circle(3));
         myShapeList.remove(0);
@@ -27,13 +28,19 @@ public class ListOfShapes {
         //myShapeList.add
 
         for (Shape s : myShapeList) {
-            System.out.println(s);
+            System.out.println(s + " surf: " + s.calcSurface());
         }
-        System.out.println();
 
+        System.out.println();
         Collections.sort(myShapeList);
         for (Shape s : myShapeList) {
-            System.out.println(s);
+            System.out.println(s + " surf: " + s.calcSurface());
+        }
+
+        System.out.println("Sorted by parA+parB");
+        Collections.sort(myShapeList, new ShapeComparator());
+        for (Shape s : myShapeList) {
+            System.out.println(s + " surf: " + s.calcSurface());
         }
     }
 }
