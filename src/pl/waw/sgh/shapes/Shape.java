@@ -1,6 +1,6 @@
 package pl.waw.sgh.shapes;
 
-public abstract class Shape {
+public abstract class Shape implements Comparable<Shape> {
 
     double parA;
     double parB;
@@ -22,6 +22,12 @@ public abstract class Shape {
     }
 
     public abstract double calcSurface();
+
+    public int compareTo(Shape shape) {
+        // compare the Double value of our surface with the surface of the given shape
+        return Double.valueOf(calcSurface()).compareTo(shape.calcSurface());
+    }
+
 
     @Override
     public String toString() {

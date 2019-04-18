@@ -1,5 +1,7 @@
 package pl.waw.sgh.shapes;
 
+import java.util.Arrays;
+
 public class PlayWithShapes {
 
     public static void main(String[] args) {
@@ -29,6 +31,8 @@ public class PlayWithShapes {
         myShapes[0] = r1;
         myShapes[1] = c1;
         myShapes[2] = new Rectangle(2,9);
+
+        Arrays.sort(myShapes);
 
         for (Shape s : myShapes) {
             System.out.println(s);
