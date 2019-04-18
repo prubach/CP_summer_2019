@@ -1,5 +1,7 @@
 package pl.waw.sgh.shapes;
 
+import java.util.Objects;
+
 public abstract class Shape implements Comparable<Shape> {
 
     double parA;
@@ -28,6 +30,19 @@ public abstract class Shape implements Comparable<Shape> {
         return Double.valueOf(calcSurface()).compareTo(shape.calcSurface());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shape shape = (Shape) o;
+        return Double.compare(shape.parA, parA) == 0 &&
+                Double.compare(shape.parB, parB) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parA, parB);
+    }
 
     @Override
     public String toString() {
