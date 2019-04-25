@@ -1,5 +1,7 @@
 package pl.waw.sgh.bank;
 
+import java.math.BigDecimal;
+
 public class PlayWithBank {
 
     public static void main(String[] args) {
@@ -14,6 +16,9 @@ public class PlayWithBank {
 
         System.out.println(bank);
 
-
+        BigDecimal b = new BigDecimal(1330);
+        BigDecimal c = BigDecimal.valueOf(456.5);
+        b = b.add(c);
+        System.out.println(b);
     }
 }

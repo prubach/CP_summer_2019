@@ -50,6 +50,14 @@ public abstract class Account {
         this.customer = customer;
     }
 
+    public void deposit(Double toDeposit) {
+
+    }
+
+    public void charge(Double toCharge) {
+
+    }
+
     @Override
     public String toString() {
         return "\n" + this.getClass().getSimpleName().replace("Account","")
