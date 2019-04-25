@@ -1,4 +1,3 @@
-Please finish the implemenation of the transfer method in bank.
 Add validation to transfer, findAccountByID, charge/deposit:
 Cases:
 - not enough money on the account
