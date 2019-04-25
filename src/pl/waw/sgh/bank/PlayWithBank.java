@@ -21,6 +21,12 @@ public class PlayWithBank {
 
         System.out.println(bank);
 
+        //bank.transfer(a2, a1, 50.0);
+
+        bank.transfer(1002, 1000, 80.0);
+
+        System.out.println(bank);
+
         BigDecimal b = new BigDecimal(1330);
         BigDecimal c = BigDecimal.valueOf(456.5);
         b = b.add(c);

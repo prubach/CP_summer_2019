@@ -41,10 +41,22 @@ public class Bank {
         return newAccount(customer, currency, false);
     }
 
-    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) {
-
+    public Account findAccountByID(Integer accID) {
+        for (Account acc : accountList) {
+            if (acc.getAccountID().equals(accID))
+                return acc;
+        }
+        return null;
     }
 
+    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) {
+        transfer(findAccountByID(fromAccID), findAccountByID(toAccID), toTransfer);
+    }
+
+    public void transfer(Account fromAcc, Account toAcc, double toTransfer) {
+        fromAcc.charge(toTransfer);
+        toAcc.deposit(toTransfer);
+    }
 
     @Override
     public String toString() {
