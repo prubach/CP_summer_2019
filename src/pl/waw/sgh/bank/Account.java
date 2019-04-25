@@ -51,11 +51,11 @@ public abstract class Account {
     }
 
     public void deposit(Double toDeposit) {
-
+        balance = balance.add(BigDecimal.valueOf(toDeposit));
     }
 
     public void charge(Double toCharge) {
-
+        balance = balance.subtract(BigDecimal.valueOf(toCharge));
     }
 
     @Override

@@ -14,6 +14,11 @@ public class PlayWithBank {
 
         Account a3 = bank.newCheckingAccount(c2, "EUR");
 
+        a2.deposit(450.8);
+        a2.charge(100.0);
+
+        a3.deposit(222.0);
+
         System.out.println(bank);
 
         BigDecimal b = new BigDecimal(1330);

@@ -41,6 +41,10 @@ public class Bank {
         return newAccount(customer, currency, false);
     }
 
+    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) {
+
+    }
+
 
     @Override
     public String toString() {
