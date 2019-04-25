@@ -52,11 +52,12 @@ public abstract class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "accountID=" + accountID +
-                ", balance=" + balance +
-                ", currency='" + currency + '\'' +
-                ", customer=" + customer +
+        return "\n" + this.getClass().getSimpleName().replace("Account","")
+                +"{" +
+                "" + accountID +
+                ", " + balance +
+                " " + currency +
+                ", custID=" + customer.getCustomerID() +
                 '}';
     }
 }

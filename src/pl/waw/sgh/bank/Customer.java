@@ -52,10 +52,10 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "customerID=" + customerID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                "ID=" + customerID +
+                ", '" + firstName + '\'' +
+                ", '" + lastName + '\'' +
+                //", email='" + email + '\'' +
                 '}';
     }
 }
