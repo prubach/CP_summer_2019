@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class SavingsAccount extends Account {
 
-    public SavingsAccount(Integer accountID, BigDecimal balance, String currency, Customer customer) {
-        super(accountID, balance, currency, customer);
+    public SavingsAccount(Integer accountID, String currency, Customer customer) {
+        super(accountID, currency, customer);
     }
 }

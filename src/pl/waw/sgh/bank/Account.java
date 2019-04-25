@@ -6,15 +6,14 @@ public abstract class Account {
 
     private Integer accountID;
 
-    private BigDecimal balance;
+    private BigDecimal balance = new BigDecimal(0);
 
     private String currency = "EUR";
 
     private Customer customer;
 
-    public Account(Integer accountID, BigDecimal balance, String currency, Customer customer) {
+    public Account(Integer accountID, String currency, Customer customer) {
         this.accountID = accountID;
-        this.balance = balance;
         this.currency = currency;
         this.customer = customer;
     }
