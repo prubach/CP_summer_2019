@@ -41,15 +41,16 @@ public class Bank {
         return newAccount(customer, currency, false);
     }
 
-    public Account findAccountByID(Integer accID) {
+    public Account findAccountByID(Integer accID) throws NonExistingAccountException {
         for (Account acc : accountList) {
             if (acc.getAccountID().equals(accID))
                 return acc;
         }
-        return null;
+        throw new NonExistingAccountException("Account with ID: " + accID + " not found!");
     }
 
-    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) throws NotEnoughMoneyException {
+    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) throws NotEnoughMoneyException, NonExistingAccountException {
+    //public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) throws BankException {
         transfer(findAccountByID(fromAccID), findAccountByID(toAccID), toTransfer);
     }
 
