@@ -49,11 +49,11 @@ public class Bank {
         return null;
     }
 
-    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) {
+    public void transfer(Integer fromAccID, Integer toAccID, double toTransfer) throws NotEnoughMoneyException {
         transfer(findAccountByID(fromAccID), findAccountByID(toAccID), toTransfer);
     }
 
-    public void transfer(Account fromAcc, Account toAcc, double toTransfer) {
+    public void transfer(Account fromAcc, Account toAcc, double toTransfer) throws NotEnoughMoneyException {
         fromAcc.charge(toTransfer);
         toAcc.deposit(toTransfer);
     }

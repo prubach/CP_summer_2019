@@ -54,8 +54,16 @@ public abstract class Account {
         balance = balance.add(BigDecimal.valueOf(toDeposit));
     }
 
-    public void charge(Double toCharge) {
+    public void charge(Double toCharge) throws NotEnoughMoneyException {
+//        try {
+        if (balance.doubleValue()<toCharge)
+                throw new NotEnoughMoneyException("Your balance is too low: "
+                        + balance + " requested charge: " + toCharge);
         balance = balance.subtract(BigDecimal.valueOf(toCharge));
+  /*      } catch (NotEnoughMoneyException e) {
+            System.err.println(e.getMessage());
+            //e.printStackTrace();
+        }*/
     }
 
     @Override
