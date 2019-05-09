@@ -1,0 +1,1 @@
+Please use the GUI Form designer built-into IntelliJ IDEA to create forms for the banking application (managing accounts, performing transfer etc.)
