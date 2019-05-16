@@ -6,6 +6,7 @@ import javax.swing.table.DefaultTableModel;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class AccountTableModel extends DefaultTableModel {
 
@@ -14,10 +15,29 @@ public class AccountTableModel extends DefaultTableModel {
     private List<Account> accList = new ArrayList<>();
 
     public AccountTableModel() {
-        super(cols, 2);
+        super(cols, 0);
     }
 
+    public void addRow(Account acc) {
+        accList.add(acc);
+        addRow(getVectorFromAccount(acc));
+        fireTableDataChanged();
+    }
 
+    public Vector getVectorFromAccount(Account acc) {
+        Vector vc = new Vector();
+        vc.add(acc.getAccountID());
+        vc.add(acc.getClass().getSimpleName().replace("Account", ""));
+        vc.add(acc.getCurrency());
+        vc.add(acc.getBalance());
+        return vc;
+    }
+
+    @Override
+    public boolean isCellEditable(int row, int col) {
+        if (col<2) return false;
+        else return true;
+    }
 
     @Override
     public Class<?> getColumnClass(int col) {

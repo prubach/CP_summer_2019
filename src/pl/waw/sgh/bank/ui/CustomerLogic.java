@@ -1,11 +1,14 @@
 package pl.waw.sgh.bank.ui;
 
+import pl.waw.sgh.bank.Account;
 import pl.waw.sgh.bank.Bank;
 import pl.waw.sgh.bank.Customer;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class CustomerLogic extends CustomerUI {
 
@@ -15,6 +18,8 @@ public class CustomerLogic extends CustomerUI {
     private Customer curCustomer;
 
     private JFrame mainWindow;
+
+    private JPopupMenu ctxMenu;
 
     public CustomerLogic(JFrame mainWindow) {
         super();
@@ -61,6 +66,57 @@ public class CustomerLogic extends CustomerUI {
                 displayCustomer(cust);
             }
         });
+
+        // Account Table Logic
+
+        ctxMenu = new JPopupMenu("Operations on accounts");
+        JMenuItem newCheckingAcc = new JMenuItem("New Checking Account");
+        newCheckingAcc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Account newAcc = bank.newCheckingAccount(curCustomer, "USD");
+                accTableModel.addRow(newAcc);
+            }
+        });
+        ctxMenu.add(newCheckingAcc);
+        JMenuItem newSavingsAcc = new JMenuItem("New Savings Account");
+        newSavingsAcc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Account newAcc = bank.newSavingsAccount(curCustomer, "USD");
+                accTableModel.addRow(newAcc);
+            }
+        });
+        ctxMenu.add(newSavingsAcc);
+
+
+        // Mouse Listener
+        accTable.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    ctxMenu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+
+
     }
 
     private void displayCustomer(Customer c) {
