@@ -22,12 +22,9 @@ public class CustomerLogic extends CustomerUI {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Customer cust = bank.newCustomer(textFieldFirstName.getText(),
-                        textFieldLastName.getText(),
-                        textFieldEmail.getText());
-                textFieldID.setText(cust.getCustomerID().toString());
-                curCustomer = cust;
-                JOptionPane.showMessageDialog(mainWindow, bank);
+                curCustomer.setFirstName(textFieldFirstName.getText());
+                curCustomer.setLastName(textFieldLastName.getText());
+                curCustomer.setEmail(textFieldEmail.getText());
             }
         });
         prevButton.addActionListener(new ActionListener() {
@@ -37,7 +34,8 @@ public class CustomerLogic extends CustomerUI {
                 if (prevCust!=null) {
                     displayCustomer(prevCust);
                 } else {
-                    //prevButton.setEnabled(false);
+                    prevButton.setEnabled(false);
+                    nextButton.setEnabled(true);
                 }
             }
         });
@@ -48,12 +46,21 @@ public class CustomerLogic extends CustomerUI {
                 if (nextCust!=null) {
                     displayCustomer(nextCust);
                 } else {
-                    //prevButton.setEnabled(false);
+                    nextButton.setEnabled(false);
+                    prevButton.setEnabled(true);
                 }
             }
         });
-
-
+        newButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Customer cust = bank.newCustomer("",
+                        "",
+                        "");
+                textFieldID.setText(cust.getCustomerID().toString());
+                displayCustomer(cust);
+            }
+        });
     }
 
     private void displayCustomer(Customer c) {
