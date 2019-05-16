@@ -6,8 +6,10 @@ public class CustomerFrame {
 
     public static void main(String[] args) {
         JFrame customerFrame = new JFrame("Customer");
-        CustomerUI customerUI = new CustomerUI();
-        customerFrame.add(customerUI.getMainPanel());
+        CustomerLogic custLogic = new CustomerLogic(customerFrame);
+        //CustomerUI customerUI = new CustomerUI();
+        //customerFrame.add(customerUI.getMainPanel());
+        customerFrame.add(custLogic.getMainPanel());
         customerFrame.pack();
         customerFrame.setVisible(true);
     }
