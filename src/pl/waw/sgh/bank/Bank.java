@@ -1,5 +1,6 @@
 package pl.waw.sgh.bank;
 
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,28 @@ public class Bank {
         fromAcc.charge(toTransfer);
         toAcc.deposit(toTransfer);
     }
+
+    public Customer prevCustomer(Customer curCust) {
+        int curCustIdx = customerList.indexOf(curCust);
+        if (curCustIdx > 0) {
+            return customerList.get(curCustIdx - 1);
+        } else {
+            //customerList.size()
+            return null;
+        }
+    }
+
+    public Customer nextCustomer(Customer curCust) {
+        int curCustIdx = customerList.indexOf(curCust);
+        if (curCustIdx < customerList.size()-1) {
+            return customerList.get(curCustIdx + 1);
+        } else {
+            //customerList.size()
+            return null;
+        }
+    }
+
+
 
     @Override
     public String toString() {
