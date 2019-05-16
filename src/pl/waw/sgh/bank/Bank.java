@@ -1,10 +1,10 @@
 package pl.waw.sgh.bank;
 
-import java.net.Inet4Address;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bank {
+public class Bank implements Serializable {
 
     private String name;
 

@@ -129,4 +129,12 @@ public class CustomerLogic extends CustomerUI {
         textFieldLastName.setText(c.getLastName());
     }
 
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
 }
