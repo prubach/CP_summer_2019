@@ -42,6 +42,17 @@ public class Bank implements Serializable {
         return newAccount(customer, currency, false);
     }
 
+    public void deleteAccount(Account acc) {
+        accountList.remove(acc);
+    }
+
+    public Customer findFirstCustomer() {
+        if (customerList.size()>0)
+            return customerList.get(0);
+        else
+            return null;
+    }
+
     public Account findAccountByID(Integer accID) throws NonExistingAccountException {
         for (Account acc : accountList) {
             if (acc.getAccountID().equals(accID))

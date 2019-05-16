@@ -88,6 +88,19 @@ public class CustomerLogic extends CustomerUI {
             }
         });
         ctxMenu.add(newSavingsAcc);
+        JMenuItem delAcc = new JMenuItem("Delete Account");
+        delAcc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int[] selRows = accTable.getSelectedRows();
+                for (Integer row : selRows) {
+                    Account accToDel = accTableModel.getAccountByRow(row);
+                    bank.deleteAccount(accToDel);
+                }
+                displayCustomer(curCustomer);
+            }
+        });
+        ctxMenu.add(delAcc);
 
 
         // Mouse Listener
@@ -115,11 +128,14 @@ public class CustomerLogic extends CustomerUI {
             public void mouseExited(MouseEvent e) {
             }
         });
-
-
     }
 
     private void displayCustomer(Customer c) {
+        if (c==null) {
+            c= bank.newCustomer("",
+                    "",
+                    "");
+        }
         curCustomer = c;
         accTableModel.clearTable();
         accTableModel.addRows(bank.findAccountByCustomer(curCustomer));
@@ -136,5 +152,6 @@ public class CustomerLogic extends CustomerUI {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+        displayCustomer(bank.findFirstCustomer());
     }
 }

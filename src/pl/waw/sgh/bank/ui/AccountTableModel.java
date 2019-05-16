@@ -18,6 +18,10 @@ public class AccountTableModel extends DefaultTableModel {
         super(cols, 0);
     }
 
+    public Account getAccountByRow(int row) {
+        return accList.get(row);
+    }
+
     public void clearTable() {
         accList.clear();
         dataVector.clear();
