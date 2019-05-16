@@ -80,7 +80,14 @@ public class Bank {
         }
     }
 
-
+    public List<Account> findAccountByCustomer(Customer cust) {
+        List<Account> acList = new ArrayList<>();
+        for (Account acc : accountList) {
+            if (acc.getCustomer()==cust)
+                acList.add(acc);
+        }
+        return acList;
+    }
 
     @Override
     public String toString() {

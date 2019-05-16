@@ -18,6 +18,17 @@ public class AccountTableModel extends DefaultTableModel {
         super(cols, 0);
     }
 
+    public void clearTable() {
+        accList.clear();
+        dataVector.clear();
+        fireTableDataChanged();
+    }
+
+    public void addRows(List<Account> acs) {
+        for (Account ac : acs)
+            addRow(ac);
+    }
+
     public void addRow(Account acc) {
         accList.add(acc);
         addRow(getVectorFromAccount(acc));
@@ -31,6 +42,19 @@ public class AccountTableModel extends DefaultTableModel {
         vc.add(acc.getCurrency());
         vc.add(acc.getBalance());
         return vc;
+    }
+
+    @Override
+    public void setValueAt(Object o, int row, int col) {
+        super.setValueAt(o, row, col);
+        Account acc = accList.get(row);
+        switch (col) {
+            case 2:
+                acc.setCurrency(o.toString());
+                break;
+            case 3:
+                acc.setBalance((BigDecimal)o);
+        }
     }
 
     @Override

@@ -121,6 +121,8 @@ public class CustomerLogic extends CustomerUI {
 
     private void displayCustomer(Customer c) {
         curCustomer = c;
+        accTableModel.clearTable();
+        accTableModel.addRows(bank.findAccountByCustomer(curCustomer));
         textFieldID.setText(c.getCustomerID().toString());
         textFieldEmail.setText(c.getEmail());
         textFieldFirstName.setText(c.getFirstName());
