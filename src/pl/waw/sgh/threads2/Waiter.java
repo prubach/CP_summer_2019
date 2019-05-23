@@ -29,6 +29,6 @@ public class Waiter implements Runnable {
             }
         }
         System.out.println(myThreadName + " got notified at: " + getCurTime());
-        System.out.println(myThreadName + " got: " + msg);
+        System.out.println(myThreadName + " got: " + msg.getMsg());
     }
 }
