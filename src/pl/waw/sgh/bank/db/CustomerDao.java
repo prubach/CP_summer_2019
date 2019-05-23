@@ -15,7 +15,7 @@ import java.util.List;
 public class CustomerDao {
 
     public final static String DB_DRIVER = "org.h2.Driver";
-    public final static String DB_URL = "jdbc:h2:h:/customer;create=true;user=sa;password=1234";
+    public final static String DB_URL = "jdbc:h2:~/mydb;create=true;user=sa;password=123";
 
     private static CustomerDao instance;
 
@@ -128,23 +128,23 @@ public class CustomerDao {
         Customer kl2 = new Customer(0, "Anne", "Smith", "anne@smith.com");
 
         System.out.println("Storing customers");
-        //CustomerDao.getInstance().store(kl1);
-        //CustomerDao.getInstance().store(kl2);
+        CustomerDao.getInstance().store(kl1);
+        CustomerDao.getInstance().store(kl2);
 
-        //CustomerDao.getInstance().delete(3);
-
-        CustomerDao.getInstance().update(4, "Joanne", "D'Arc", "email");
-
-        System.out.println("Retrieving customers");
-        List<Customer> customers = CustomerDao.getInstance().retrieveCustomers();
-        for (Customer customer : customers) {
-            System.out.println("-----------------------------");
-            System.out.println("ID: " + customer.getCustomerID());
-            System.out.println("FirstName: " + customer.getFirstName());
-            System.out.println("LastName: " + customer.getLastName());
-            System.out.println("Email: " + customer.getEmail());
-            System.out.println("-----------------------------");
-        }
+//        //CustomerDao.getInstance().delete(3);
+//
+//        CustomerDao.getInstance().update(4, "Joanne", "D'Arc", "email");
+//
+//        System.out.println("Retrieving customers");
+//        List<Customer> customers = CustomerDao.getInstance().retrieveCustomers();
+//        for (Customer customer : customers) {
+//            System.out.println("-----------------------------");
+//            System.out.println("ID: " + customer.getCustomerID());
+//            System.out.println("FirstName: " + customer.getFirstName());
+//            System.out.println("LastName: " + customer.getLastName());
+//            System.out.println("Email: " + customer.getEmail());
+//            System.out.println("-----------------------------");
+//        }
 
     }
 }
