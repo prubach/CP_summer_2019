@@ -7,7 +7,7 @@ public class Waiter implements Runnable {
 
     private Message msg;
 
-    private Waiter(Message msg) {
+    public Waiter(Message msg) {
         this.msg = msg;
     }
 
@@ -21,10 +21,12 @@ public class Waiter implements Runnable {
     public void run() {
         String myThreadName = Thread.currentThread().getName();
         System.out.println(myThreadName + " starts executing at: " + getCurTime());
-        try {
-            msg.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (msg) {
+            try {
+                msg.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println(myThreadName + " got notified at: " + getCurTime());
         System.out.println(myThreadName + " got: " + msg);
