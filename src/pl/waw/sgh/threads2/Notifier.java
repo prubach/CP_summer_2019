@@ -16,7 +16,7 @@ public class Notifier implements Runnable {
             Thread.sleep(5000);
             synchronized (msg) {
                 msg.setMsg("Before notify");
-                msg.notify();
+                msg.notifyAll();
             }
 
         } catch (InterruptedException e) {
